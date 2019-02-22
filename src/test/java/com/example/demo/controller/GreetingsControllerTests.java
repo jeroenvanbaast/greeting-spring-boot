@@ -1,36 +1,36 @@
 package com.example.demo.controller;
 
+import static org.hamcrest.Matchers.containsString;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import com.example.demo.model.Greeting;
+import com.example.demo.services.GreetingsService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import static org.assertj.core.api.Assertions.*;
+import org.springframework.test.web.servlet.MockMvc;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@WebMvcTest(GreetingsController.class)
 public class GreetingsControllerTests {
 
-    @LocalServerPort
-    private int port;
-
     @Autowired
-    private GreetingsController controller;
+    private MockMvc mockMvc;
 
-    @Autowired
-    private TestRestTemplate restTemplate;
+    @MockBean
+    private GreetingsService service;
 
     @Test
-    public void contextLoads() throws Exception{
-        assertThat(controller).isNotNull();
-    }
-
-    @Test
-    public void greetingShouldReturnDefaultMessage() throws Exception {
-        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/Jeroen",
-                String.class)).contains("Jeroen");
+    public void greetingShouldReturnMessageFromService() throws Exception {
+        when(service.findByName("Jeroen")).thenReturn(new Greeting("1","Jeroen"));
+        this.mockMvc.perform(get("/greetings/Jeroen")).andDo(print()).andExpect(status().isOk())
+                .andExpect(content().string(containsString("Jeroen")));
     }
 }
