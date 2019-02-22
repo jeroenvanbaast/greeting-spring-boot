@@ -1,11 +1,8 @@
 package com.example.demo.services;
 
 import com.example.demo.model.Greeting;
-import com.example.demo.repository.BaseRepository;
 import com.example.demo.repository.GreetingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
