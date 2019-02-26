@@ -37,7 +37,7 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(GreetingsController.class)
-@AutoConfigureRestDocs(outputDir = "target/snippets")
+@AutoConfigureRestDocs(outputDir = "target/generated-snippets")
 public class GreetingsControllerTests {
 
     @MockBean
