@@ -8,4 +8,16 @@ include::{snippets}/home/http-request.adoc[]
 .response
 include::{snippets}/home/http-response.adoc[]
 
+.response-fields
+include::{snippets}/home/response-fields.adoc[]
+
+.request
+include::{snippets}/post/http-request.adoc[]
+
+.response
+include::{snippets}/post/http-response.adoc[]
+
+.response-fields
+include::{snippets}/post/response-fields.adoc[]
+
 As you can see the format is very simple, and in fact you always get the same message.

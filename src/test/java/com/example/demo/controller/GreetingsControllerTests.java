@@ -74,7 +74,10 @@ public class GreetingsControllerTests {
                 .content(asJsonString(new Greeting("1", "Jan"))))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("Jan")));
+                .andExpect(content().string(containsString("Jan")))
+                .andDo(document("post", responseFields(
+                        fieldWithPath("name").description("The name of the user to greet."),
+                        fieldWithPath("id").description("The id of the greeting"))));
     }
 
     public static String asJsonString(final Object obj) {
