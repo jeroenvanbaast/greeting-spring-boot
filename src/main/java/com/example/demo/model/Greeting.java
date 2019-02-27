@@ -1,11 +1,14 @@
 package com.example.demo.model;
 
+import io.swagger.annotations.ApiModelProperty;
 import org.springframework.data.annotation.Id;
 
 public class Greeting {
 
     @Id
+    @ApiModelProperty(notes = "The id of the greeting")
     private String id;
+    @ApiModelProperty(notes = "The name of the person to greet")
     private String name;
 
     public Greeting(String id, String name) {
