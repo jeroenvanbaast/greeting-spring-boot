@@ -52,7 +52,7 @@ public class GreetingsControllerTests {
         this.mockMvc.perform(get("/greetings/Jeroen"))
                 .andDo(print())
                 .andExpect(content().string(containsString("Jeroen")))
-                .andDo(document("home", responseFields(
+                .andDo(document("byName", responseFields(
                         fieldWithPath("name").description("The name of the user to greet."),
                         fieldWithPath("id").description("The id of the greeting"))));
     }
@@ -75,7 +75,7 @@ public class GreetingsControllerTests {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("Jan")))
-                .andDo(document("post", responseFields(
+                .andDo(document("createGreeting", responseFields(
                         fieldWithPath("name").description("The name of the user to greet."),
                         fieldWithPath("id").description("The id of the greeting"))));
     }

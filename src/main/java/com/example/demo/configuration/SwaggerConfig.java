@@ -26,16 +26,16 @@ public class SwaggerConfig {
                 .apiInfo(getApiInfo());
     }
 
-        private ApiInfo getApiInfo () {
-            return new ApiInfo(
-                    "Automated exams scoring",
-                    "This project is made to help by the proces of grading open questions on exams.",
-                    "0.1",
-                    "",
-                    new Contact("Jeroen van Baast", "", "jeroenvanbaast@gmail.com"),
-                    "",
-                    "",
-                    Collections.emptyList()
-            );
-        }
+    private ApiInfo getApiInfo() {
+        return new ApiInfo(
+                "Automated exams scoring",
+                "This project is made to help by the proces of grading open questions on exams.",
+                "0.1",
+                "",
+                new Contact("Jeroen van Baast", "", "jeroenvanbaast@gmail.com"),
+                "",
+                "",
+                Collections.emptyList()
+        );
     }
+}

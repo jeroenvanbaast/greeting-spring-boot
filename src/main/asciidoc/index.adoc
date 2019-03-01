@@ -2,22 +2,27 @@
 
 This is an example output for a service running at http://localhost:8080:
 
-.request
-include::{snippets}/home/http-request.adoc[]
+== Get a greeting by name
 
-.response
-include::{snippets}/home/http-response.adoc[]
-
-.response-fields
-include::{snippets}/home/response-fields.adoc[]
+A get request that is used to find a greeting by name
 
 .request
-include::{snippets}/post/http-request.adoc[]
+include::{snippets}/byName/http-request.adoc[]
 
 .response
-include::{snippets}/post/http-response.adoc[]
+include::{snippets}/byName/http-response.adoc[]
 
 .response-fields
-include::{snippets}/post/response-fields.adoc[]
+include::{snippets}/byName/response-fields.adoc[]
+
+== Create greeting
+.request
+include::{snippets}/createGreeting/http-request.adoc[]
+
+.response
+include::{snippets}/createGreeting/http-response.adoc[]
+
+.response-fields
+include::{snippets}/createGreeting/response-fields.adoc[]
 
 As you can see the format is very simple, and in fact you always get the same message.
